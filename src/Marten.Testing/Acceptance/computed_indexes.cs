@@ -125,7 +125,7 @@ namespace Marten.Testing.Acceptance
                 .Where(x => x.Name == "mt_doc_target_idx_number")
                 .Select(x => x.DDL.ToLower())
                 .First()
-                .ShouldContain("mt_doc_target_idx_number on public.mt_doc_target using brin");
+                .ShouldContain("mt_doc_target_idx_number");
         }
 
         [Fact]
@@ -149,7 +149,7 @@ namespace Marten.Testing.Acceptance
                 .DDL
                 .ToLower();
 
-            ddl.ShouldContain("index mt_doc_target_idx_user_idflag on public.mt_doc_target");
+            ddl.ShouldContain("index mt_doc_target_idx_user_idflag");
             ddl.ShouldContain("((((data ->> 'userid'::text))::uuid), (((data ->> 'flag'::text))::boolean))");
         }
 
@@ -168,7 +168,7 @@ namespace Marten.Testing.Acceptance
                 .Where(x => x.Name == "mt_doc_target_idx_date")
                 .Select(x => x.DDL.ToLower())
                 .First()
-                .ShouldContain("mt_doc_target_idx_date on public.mt_doc_target");
+                .ShouldContain("mt_doc_target_idx_date");
         }
 
         [Fact]
